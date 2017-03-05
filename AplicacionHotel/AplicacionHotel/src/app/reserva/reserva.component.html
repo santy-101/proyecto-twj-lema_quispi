@@ -1,0 +1,125 @@
+<h1 align="center">{{title}}</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+      <form class="animated bounceIn" (ngSubmit)="crearReserva(NuevaReservaForm)" #NuevaReservaForm="ngForm">
+        <div class="form-group">
+
+          <label>Fecha de Inicio de la Reserva</label>
+          <input required
+                 type="date"
+                 class="form-control"
+                 name="fechaInicio"
+                 [(ngModel)]="nuevaReserva.fechaInicio"
+                 #nombre="ngModel"
+                 #nombreElm>
+        </div>
+        <div class="form-group">
+          <label>Fecha Fin de la Reserva</label>
+
+          <input required
+                 type="date"
+                 class="form-control"
+                 name="fechaFin"
+                 [(ngModel)]="nuevaReserva.fechaFin"
+                 #nombre="ngModel"
+                 #nombreElm>
+        </div>
+        <div class="form-group">
+          <label>Cantidad de habitaciones</label>
+
+          <input required
+                 type="number"
+                 min = "1"
+                 class="form-control"
+                 placeholder="Ingrese el número de habitaciones"
+                 name="numHabitaciones"
+                 [(ngModel)]="nuevaReserva.numHabitaciones"
+                 #nombre="ngModel"
+                 #nombreElm>
+        </div>
+        <button [disabled]="disabledButtons.NuevaReservaFormSubmitButton||!NuevaReservaForm.valid" type="submit"
+                class="btn btn-block btn-success">Crear Reserva
+        </button>
+      </form>
+    </div>
+    <div class="col-sm-5 animated flipInX table-bordered ma-margen-top-bottom ma-padding-top-bottom" *ngFor="let reserva of reservas">
+      <div class="text-center">
+        <h3>ID de la Reserva: {{reserva.id}}</h3>
+        <p>Fecha Inicio: {{reserva.fechaInicio}}</p>
+        <p>Fecha Fin: {{reserva.fechaFin}}</p>
+        <p>{{reserva.numHabitaciones}} habitaciones</p>
+      </div>
+
+      <div  class="row animated flipInY" >
+        <div class="col-sm-5" >
+          <button class="btn btn-block btn-info"
+                  (click)="disabledButtons.Oculto = false; reserva.formularioCerrado = !reserva.formularioCerrado"
+          >Actualizar</button>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-5">
+          <button class="btn btn-block btn-danger" (click)="borrarReserva(reserva.id)">Borrar</button>
+        </div>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+            <button class="btn btn-block btn-success" [routerLink]="[reserva.id,'huesped']">Ir a Huéspedes</button>
+
+          </div>
+        </div>
+      </div>
+      <div class="div" [hidden]="reserva.formularioCerrado || (disabledButtons.Oculto)">
+        <form action="">
+          <form class="animated bounceIn" (ngSubmit)="actualizarReserva(reserva)" #NuevaReservaForm="ngForm">
+            <div  class="form-group">
+              <label>Fecha de Inicio de la Reserva</label>
+              <input required
+                     type="date"
+                     class="form-control"
+                     name="fechainicio"
+                     [(ngModel)]="reserva.fechaInicio"
+                     #nombre="ngModel"
+                     #nombreElm>
+              <input required
+                     type="date"
+                     class="form-control"
+                     name="fechaFin"
+                     [(ngModel)]="reserva.fechaFin"
+                     #nombre="ngModel"
+                     #nombreElm>
+              <input required
+                     min="1"
+                     type="number"
+                     class="form-control"
+                     placeholder="Digite el nuevo número de habitaciones"
+                     name="numHabitaciones"
+                     [(ngModel)]="reserva.numHabitaciones"
+                     #nombre="ngModel"
+                     #nombreElm>
+            </div>
+            <button [disabled]="disabledButtons.NuevaReservaFormSubmitButton||!NuevaReservaForm.valid" type="submit"
+                    class="btn btn-block btn-success">Actualizar
+            </button>
+            <button type="button"
+                    class="btn btn-block btn-warning"
+                    (click)="reserva.formularioCerrado = !bodega.formularioCerrado"
+            >Cancelar
+            </button>
+          </form>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    </div>
+
+
+
+
+<!--<router-outlet></router-outlet>-->
+
