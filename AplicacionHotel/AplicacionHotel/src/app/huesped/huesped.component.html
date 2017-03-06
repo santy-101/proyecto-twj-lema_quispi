@@ -1,14 +1,10 @@
 <h1 align="center">{{title}} de la Reserva {{this._parametros.idReserva}}</h1>
-
-
 <div class="container">
   <div class="row">
     <div class="col-sm-5">
       <form class="animated bounceIn" (ngSubmit)="crearHuesped(NuevoHuespedForm)" #NuevoHuespedForm="ngForm">
-
         <div class="form-group">
           <label>Apellidos</label>
-
           <input required
                  minlength="4"
                  type="text"
@@ -33,7 +29,6 @@
         </div>
         <div class="form-group">
         <label>Fecha de nacimiento</label>
-
         <input required
                type="date"
                class="form-control"
@@ -50,7 +45,6 @@
     <div class="col-sm-5 animated flipInX table-bordered ma-margen-top-bottom ma-padding-top-bottom" *ngFor="let huesped of huespedes">
       <div class="text-center">
         <h3>{{huesped.nombres}}</h3>
-
         <h3>{{huesped.apellidos}}</h3>
         <p>Fecha de nacimiento: {{huesped.fechaNacimiento}}</p>
       </div>
@@ -72,7 +66,7 @@
         <form action="">
           <form class="animated bounceIn" (ngSubmit)="actualizarHuesped(huesped)" #NuevoHuespedForm="ngForm">
             <div  class="form-group">
-              <label>Huésped</label>
+              <label>Apellidos</label>
               <input required
                      minlength="4"
                      type="text"
@@ -82,6 +76,9 @@
                      [(ngModel)]="huesped.apellidos"
                      #nombre="ngModel"
                      #nombreElm>
+            </div>
+            <div  class="form-group">
+              <label>Nombres</label>
               <input required
                      minlength="4"
                      type="text"
@@ -91,6 +88,9 @@
                      [(ngModel)]="huesped.nombres"
                      #nombre="ngModel"
                      #nombreElm>
+            </div>
+            <div  class="form-group">
+              <label>Fecha de Nacimiento</label>
               <input required
                      type="date"
                      class="form-control"
