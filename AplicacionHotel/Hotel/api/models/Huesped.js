@@ -8,11 +8,9 @@
 module.exports = {
 
   attributes: {
-
-    idReserva:{
-      model:"Reserva"
+    idHabitacion:{
+      model:"Habitacion"
     }
-
   }
 };
 

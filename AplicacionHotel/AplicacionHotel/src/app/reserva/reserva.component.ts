@@ -46,8 +46,7 @@ export class ReservaComponent implements OnInit {
 
     this._http.post(this._masterURL.url + "Reserva", {
       fechaInicio: formulario.value.fechaInicio,
-      fechaFin: formulario.value.fechaFin,
-      numHabitaciones: formulario.value.numHabitaciones
+      fechaFin: formulario.value.fechaFin
     }).subscribe(
       (res) => {
         console.log("No hubo errores");
@@ -85,8 +84,7 @@ export class ReservaComponent implements OnInit {
   actualizarReserva(reserva: any) {
     let parametos = {
       fechaInicio: reserva.fechaInicio,
-      fechaFin: reserva.fechaFin,
-      numHabitaciones: reserva.numHabitaciones
+      fechaFin: reserva.fechaFin
     };
     this._http.put(this._masterURL.url + "Reserva/" + reserva.id, parametos)
       .subscribe(

@@ -30,7 +30,7 @@ export class HuespedComponent implements OnInit {
       .params
       .subscribe(parametros => {
         this._parametros = parametros;
-        this._http.get(this._masterURL.url+"Huesped?idReserva="+this._parametros.idReserva)
+        this._http.get(this._masterURL.url+"Huesped?idHabitacion="+this._parametros.idHabitacion)
           .subscribe(
             (res:Response)=> {
               this.huespedes= res.json() .map((value) => {
@@ -53,7 +53,7 @@ export class HuespedComponent implements OnInit {
       apellidos: formulario.value.apellidos,
       nombres: formulario.value.nombres,
       fechaNacimiento: formulario.value.fechaNacimiento,
-      idReserva: this._parametros.idReserva
+      idHabitacion: this._parametros.idHabitacion
     }).subscribe(
       (res) => {
         console.log("No hubo errores");

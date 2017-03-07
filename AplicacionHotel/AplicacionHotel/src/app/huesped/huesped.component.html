@@ -1,4 +1,4 @@
-<h1 align="center">{{title}} de la Reserva {{this._parametros.idReserva}}</h1>
+<h1 align="center">{{title}} de la Habitación {{this._parametros.idHabitacion}}</h1>
 <div class="container">
   <div class="row">
     <div class="col-sm-5">
@@ -12,7 +12,7 @@
                  placeholder="Ingrese los apellidos del huésped"
                  name="apellidos"
                  [(ngModel)]="nuevoHuesped.apellidos"
-                 #nombre="ngModel"
+                 #apellidos="ngModel"
                  #nombreElm>
         </div>
         <div class="form-group">
@@ -24,7 +24,7 @@
                  placeholder="Ingrese los nombres del huésped"
                  name="nombres"
                  [(ngModel)]="nuevoHuesped.nombres"
-                 #nombre="ngModel"
+                 #nombres="ngModel"
                  #nombreElm>
         </div>
         <div class="form-group">
@@ -34,7 +34,7 @@
                class="form-control"
                name="fechaNacimiento"
                [(ngModel)]="nuevoHuesped.fechaNacimiento"
-               #nombre="ngModel"
+               #fechaNacimiento="ngModel"
                #nombreElm>
       </div>
         <button [disabled]="disabledButtons.NuevoHuespedFormSubmitButton||!NuevoHuespedForm.valid"
@@ -74,7 +74,7 @@
                      placeholder="Digite los apellidos del huésped"
                      name="apellidos"
                      [(ngModel)]="huesped.apellidos"
-                     #nombre="ngModel"
+                     #apellidos="ngModel"
                      #nombreElm>
             </div>
             <div  class="form-group">
@@ -86,7 +86,7 @@
                      placeholder="Digite los nombres del huésped"
                      name="nombres"
                      [(ngModel)]="huesped.nombres"
-                     #nombre="ngModel"
+                     #nombres="ngModel"
                      #nombreElm>
             </div>
             <div  class="form-group">
@@ -96,7 +96,7 @@
                      class="form-control"
                      name="fechaNacimiento"
                      [(ngModel)]="huesped.fechaNacimiento"
-                     #nombre="ngModel"
+                     #fechaNacimiento="ngModel"
                      #nombreElm>
             </div>
             <button [disabled]="disabledButtons.NuevoHuespedFormSubmitButton||!NuevoHuespedForm.valid" type="submit"
